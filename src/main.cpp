@@ -7,9 +7,9 @@
 int main() {
   srand(time(NULL));
 
-  Node* root = generate_node_tree(2, 4);
+  Node* root = generate_node_tree(4, 4);
 
-  simple_print(root);
+  pretty_print(root);
 
   free_node(root);
 
