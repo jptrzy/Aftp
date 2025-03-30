@@ -25,12 +25,10 @@ void simple_print(Node* root) {
  *
  * Over complication caused by usage of sibling tree storing method.
  *
- * TODO Could be made more efficient, if only one string is used for prefix
- *
  */
 
-void _pretty_print(Node* node, bool root, const char* prefix) {
-  printf("%s", prefix);
+void _pretty_print(Node* node, char** prefix, bool root) {
+  printf("%s", *prefix);
 
   if (!root) {
     if (node->sibling) {
@@ -43,19 +41,30 @@ void _pretty_print(Node* node, bool root, const char* prefix) {
   printf ("%s\n", node->name);
 
   if (node->first_child) {
-    char new_prefix[512];
-    strcpy(new_prefix, prefix);
+    int len = strlen(*prefix);
+
     if (!root) {
-      strcat(new_prefix, node->sibling ? "│ " : "  ");
+      strcat(*prefix, node->sibling ? "│ " : "  ");
     }
-    _pretty_print(node->first_child, false, new_prefix);
+    _pretty_print(node->first_child, prefix, false);
+
+    (*prefix)[len] = '\0';
   }
 
   if (node->sibling) {
-    _pretty_print(node->sibling, false, prefix);
+    _pretty_print(node->sibling, prefix, false);
   }
 }
 
 void pretty_print(Node* root) {
-  _pretty_print(root, true, "");
+  /*
+   * If we expect the terminal to be 80 chars in width, then buffer is:
+   * 256 bytes > 40 * 3 (amount of bytes for │ symbol in utf-8) + 40
+   */
+  char* buffer = (char*) malloc(sizeof(char) * 256);
+  strcpy(buffer, "\0");
+
+  _pretty_print(root, &buffer, true);
+
+  free(buffer);
 }
