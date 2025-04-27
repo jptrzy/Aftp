@@ -1,5 +1,6 @@
 #include "node.h"
 #include <iostream>
+#include <queue>
 
 std::string generate_name(int max_length) {
   std::string name = ""; 
@@ -61,4 +62,26 @@ void _print(Node* node, std::string prefix, bool root=false, bool last=false) {
 
 void Node::print() {
   _print(this, "", true);
+}
+
+
+Node* Node::find_by_name(std::string name) {
+  std::queue<Node*> que;
+  que.push(this);
+
+  while (!que.empty()) {
+    Node* node = que.front();
+
+    std::cout << node->name << std::endl;
+
+    if (node->name == name) return node;
+
+    for (auto& child : node->childs) {
+      que.push(&child);
+    }
+
+    que.pop();
+  }
+
+  return NULL;
 }

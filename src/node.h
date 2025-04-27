@@ -14,6 +14,8 @@ public:
   static Node generate_node_tree(int depth, int max_nodes);
 
   void print();
+
+  Node* find_by_name(std::string name);
 };
 
 #endif
