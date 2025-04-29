@@ -3,11 +3,12 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 class Node {
 public:
   std::string name;
-  std::vector<Node> childs;
+  std::vector<std::shared_ptr<Node>> childs;
 
   Node(std::string name);
 
