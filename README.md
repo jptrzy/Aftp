@@ -2,15 +2,15 @@
 ## Directions
 
 - [X] Signal visualization using [matplotplusplus](https://github.com/alandefreitas/matplotplusplus).
-- [ ] [DFT](https://en.wikipedia.org/wiki/Discrete_Fourier_transform) &  inverted
-- [ ] [1D & 2D Filter](https://docs.scipy.org/doc/scipy/tutorial/signal.html#filtering)
+- [X] [DFT](https://en.wikipedia.org/wiki/Discrete_Fourier_transform) &  inverted
+- [X] [1D & 2D Filter](https://docs.scipy.org/doc/scipy/tutorial/signal.html#filtering)
 - [X] Signal generation with specified frequency (sin, cos, square, sawtooth)
   - [X] Sin
   - [X] Cos
   - [X] Square
   - [X] Sawtooth
 
-- [ ] Edge detection (using filters)
+- [X] Edge detection (using filters)
 
 Original directions can be find [here](https://github.com/marekjg/tp_projekt_3)(in Polish).
 
