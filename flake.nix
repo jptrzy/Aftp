@@ -20,6 +20,7 @@
           bear
 
           gnuplot
+          jupyter
 
           (python3.withPackages(ps: with ps; [
             pybind11

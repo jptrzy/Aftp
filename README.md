@@ -1,7 +1,7 @@
 # 3 Assignment
 ## Directions
 
-- [ ] Signal visualization using [matplotplusplus](https://github.com/alandefreitas/matplotplusplus).
+- [X] Signal visualization using [matplotplusplus](https://github.com/alandefreitas/matplotplusplus).
 - [ ] [DFT](https://en.wikipedia.org/wiki/Discrete_Fourier_transform) &  inverted
 - [ ] [1D & 2D Filter](https://docs.scipy.org/doc/scipy/tutorial/signal.html#filtering)
 - [X] Signal generation with specified frequency (sin, cos, square, sawtooth)
