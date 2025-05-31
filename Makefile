@@ -1,4 +1,4 @@
-TARGET =
+TARGET = a3
 
 CPP ?= gpp
 

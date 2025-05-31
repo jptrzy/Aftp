@@ -19,6 +19,8 @@
           clang-tools
           bear
 
+          gnuplot
+
           (python3.withPackages(ps: with ps; [
             pybind11
           ]))
