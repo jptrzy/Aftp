@@ -127,7 +127,8 @@ void plot_complex(const std::vector<std::complex<double>>& signal)
 
 // Based on past imp
 // Source:: https://jptrzy.gitlab.io/complex-numbers-demo
-std::vector<std::complex<double>> compute_dft(const std::vector<double>& signal) {
+std::vector<std::complex<double>> compute_dft(const std::vector<double>& signal)
+{
     int N = static_cast<int>(signal.size());
     std::vector<std::complex<double>> result(N);
 
@@ -144,7 +145,8 @@ std::vector<std::complex<double>> compute_dft(const std::vector<double>& signal)
     return result;
 }
 
-std::vector<double> compute_idft(const std::vector<std::complex<double>>& freq_data) {
+std::vector<double> compute_idft(const std::vector<std::complex<double>>& freq_data)
+{
     int N = static_cast<int>(freq_data.size());
     std::vector<double> signal(N);
 
@@ -160,6 +162,32 @@ std::vector<double> compute_idft(const std::vector<std::complex<double>>& freq_d
 
     return signal;
 }
+
+
+std::vector<double> apply_filter_1d(std::vector<double> signal, double value)
+{
+    for (int n = 0; n < signal.size(); ++n) {
+      signal[n] *= value;
+    }
+
+    return signal;
+}
+
+std::vector<std::complex<double>> apply_filter_2d(std::vector<std::complex<double>> signal, double value)
+{
+    for (int n = 0; n < signal.size(); ++n) {
+      signal[n] *= value;
+    }
+
+    return signal;
+}
+
+std::vector<std::complex<double>> edge_detection(std::vector<std::complex<double>> signal)
+{
+  // TODO
+  return signal;
+}
+
 
 PYBIND11_MODULE(a3, m)
 {
@@ -179,4 +207,9 @@ PYBIND11_MODULE(a3, m)
 
     m.def("dft", &compute_dft, "Compute dft");
     m.def("idft", &compute_idft, "Compute inverse dft");
+
+    m.def("filter1d", &apply_filter_1d, "Apply 1d filter");
+    m.def("filter2d", &apply_filter_2d, "Apply 2d filter");
+
+    m.def("edge", &edge_detection, "Edge Detection");
 }
